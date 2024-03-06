@@ -13,7 +13,7 @@ class Program
             .AddJsonFile("appsettings.json")
             .Build();
 
-        string openAIEndpoint = configuration.GetSection("AzureOpenAI:Endpoint").Value;
+        string openAIEndpoint = configuration.GetSection("AzureOpenAI:Endpoint").Value + "openai/deployments/gpt4/chat/completions?api-version=2024-02-15-preview";
         string openAIKey = configuration.GetSection("AzureOpenAI:Key").Value;
 
         // Read text file
@@ -61,8 +61,9 @@ class Program
     {
         var requestBody = new
         {
-            messages = new[] { new 
-            { role = "user", content = extractionPrompt + "\n\n" + request.Text }
+            messages = new[] { 
+            new { role = "system", content =  extractionPrompt},
+            new { role = "user", content = request.Text },
             },
             max_tokens = 150
         };

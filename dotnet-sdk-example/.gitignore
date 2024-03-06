@@ -1,0 +1,30 @@
+# Visual Studio specific files
+*.suo
+*.user
+*.vbproj
+*.vcxproj
+*.vcxproj.user
+*.myproj
+
+# Build output
+/bin/
+/obj/
+/.vs/
+
+# Temporary files
+*.tmp
+*.log
+*.cache
+
+# Testing frameworks
+/testresults/
+
+# NuGet packages
+/packages/
+
+# Specific IDE or editor files
+*.vscode/
+!.vscode/settings.json  # Optional, keep your VS Code settings if desired
+
+# Any other files you want to exclude
+# Add or remove lines as needed
